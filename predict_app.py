@@ -34,26 +34,23 @@ def preprocess_image(image, target_size):
 print(" * Loading Keras model...")
 get_model()
 
+print("starting server")
 @app.route("/predict", methods=["POST"])
 def predict():
+    print("requested")
     message = request.get_json(force=True)
     encoded = message['image']
     #image_data = re.sub('^data:image/.+;base64,', '', encoded)
     #decoded = base64.b64decode(image_data)
     decoded = base64.b64decode(encoded)
     image = Image.open(io.BytesIO(decoded))
-    print(image)
     processed_image = preprocess_image(image, target_size=(224, 224))
-
     prediction = model.predict(processed_image).tolist()
-    print(prediction)
+
 
     response = {
-        'prediction': {
-            'acne': prediction ,
-            'eczema': prediction,
-            'pigmentation': prediction
-            
-        }
+        'prediction': prediction
     }
     return jsonify(response)
+
+app.run("localhost", 8080)
