@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8">
+    <title>Dermasentia</title>
+    <link rel="stylesheet" href="Homepage.css">
+   
+    
+   </head>
+    
+<body style="background-color:pink;">
+    
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+        <!--
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    -->
+    </div> 
+    
+    <br>
+    <br>
+    <div class="container">
+      <div class="vertical-center">
+        <input id="image-selector" type="file">    
+        <button id="predict-button">Predict</button>
+        <p style="font-weight:bold">Predictions</p>    
+        <p>Acne: <span id="acne-prediction"></span></p>
+        <p>Eczema: <span id="eczema-prediction"></span></p>
+        <p>Pigmentation: <span id="pigmentation-prediction"></span></p>
+        <img id="selected-image" src=""/> 
+      </div>
+    </div>
+    
+    
+   <footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Derma  <span>Sentia</span></h3>
+            <p class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">DermaSentia</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+              <p>
+                    <span> 
+                  FCRIT, VASHI
+                     </span> 
+                NAVI MUMBAI - 400710</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91-9820835824</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:rrcg2000@gmail.com">Mail us!</a></p>
+        </div>
+    </div>
+    <div class="footer-right">
+         <p class="footer-company-about">
+            <span>ABOUT THE APPLICATION</span>
+            Our application aims at detecting skin diseases quickly and easily!</p> 
+        
+    </div>
+</footer> 
+    
+    
+
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    let base64Image;
+    $("#image-selector").change(function() {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let dataURL = reader.result;
+            $('#selected-image').attr("src", dataURL);
+            base64Image = dataURL.replace("data:image/png;base64,","");
+            console.log(base64Image);
+        }
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+        $("#acne-prediction").text("");
+        $("#eczema-prediction").text("");
+        $("#pigmentation-prediction").text("");
+    });
+    $("#predict-button").click(function(){
+        let message = {
+            image: base64Image
+        }
+        console.log(message);
+        $.post("http://localhost:5000/predict", JSON.stringify(message), function(response){
+            
+            $("#acne-prediction").text(response.prediction[0][0].toFixed(6));
+            $("#eczema-prediction").text(response.prediction[0][1].toFixed(6));
+            $("#pigmentation-prediction").text(response.prediction[0][2].toFixed(6));
+            console.log(response);
+        });
+    });       
+    </script>
+    
+    
+    
+</body>
+</html>    
+    
