@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8">
+    <title>Dermasentia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="Homepage.css">
+</head>
+    
+<body>
+    
+  <div class="wrapper">
+	  <div class="navbar">
+		  <div class="inner_navbar">
+			  <div class="logo">
+				<a href="Homepage.html">DERMA <span>Sentia</span></a>
+			  </div>
+			  <div class="menu">
+				  <ul>
+					  <li><a href="Homepage.html" class="active">Home</a></li>
+					  <!-- <li><a href="#">Profile</a></li>
+					       <li><a href="#">About</a></li> 
+					  <li><a href="#">Contact</a></li> -->
+					<!-- <li><a href="#">About Us</a></li> -->
+				  </ul>
+			  </div>
+		  </div>
+		  <div class="hamburger">
+			  <i class="fas fa-bars"></i>
+		  </div>
+	  </div>
+  </div>
+  
+  <script>
+	  var hamburger = document.querySelector(".hamburger");
+	  var menu = document.querySelector(".menu");
+    
+	  hamburger.addEventListener("click", function(){
+		    menu.classList.toggle("active");
+	})
+  </script>
+  
+  <br>
+  <br>
+    <div class="container1">
+      <div class="vertical-center">
+        <input id="image-selector" type="file">    
+        <button id="predict-button">Predict</button>
+        <p style="font-weight:bold">Predictions</p>    
+        <p>Acne: <span id="acne-prediction"></span></p>
+        <p>Eczema: <span id="eczema-prediction"></span></p>
+        <p>Pigmentation: <span id="pigmentation-prediction"></span></p>
+        <img id="selected-image" src=""/> 
+      </div>
+    </div>
+    
+    <div class="container2">
+      <img id="disease-image" src="" alt="Disease Image"/>
+      <div class="disease-description">
+	      <h1 class="description-title">Description</h1>
+	      <p class="description-deets">
+	        Rosacea is a chronic inflammatory skin condition that usually affects the face. People may mistake rosacea for acne, eczema, or an allergic skin reaction. The main symptoms of rosacea are facial flushing, irritated skin, and pimples. Other symptoms include blushing easily and eye problems
+	      </p>
+      </div>
+      <div class="disease-dos">
+	      <h1 class="dos-title">Dos</h1>
+	      <p class="dos-deets">
+	        Do apply skincare products rich in antioxidants and organic oils
+	        <br>
+	        Do wear sunscreen
+	        <br>
+	        Do eat a colourful diet
+	        <br>
+	        Do eat all the good bacteria
+	        <br>
+	        Do try to stay calm
+	      </p>
+      </div>    
+      <div class="disease-donts">
+	      <h1 class="donts-title">Donts</h1>
+	      <p class="donts-deets">
+	        Don’t put chemicals on or next to your skin
+	        <br>
+	        Don’t eat foods that aggravate your rosacea
+	        <br>
+	        Don’t get too hot or cold
+	        <br>
+	      </p>
+      </div>
+      
+    </div>
+
+    <div class="main-background">
+      <!-- DOCTORS -->
+      <div class="doc-bar">
+	      <h1 class="doc-title">Suggested Doctors</h1>
+      </div>
+
+      <div class="docs">
+	      <div class="card">
+	        <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	        <h1 class="doc-name">Doctor Miller</h1>
+	        <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	        </p>
+	      </div>
+	      <div class="card">
+	  <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	  <h1 class="doc-name">Doctor Miller</h1>
+	  <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	  </p>
+	      </div>
+	      <!-- <div class="card">
+	           <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	           <h1 class="doc-name">Doctor Miller</h1>
+	           <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	           </p>
+	</div> -->
+	      <!-- <div class="card">
+	           <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	           <h1 class="doc-name">Doctor Miller</h1>
+	           <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	           </p>
+	      </div>
+	      <div class="card">
+	        <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	  <h1 class="doc-name">Doctor Miller</h1>
+	        <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	        </p>
+	      </div>
+	      <div class="card">
+	        <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	        <h1 class="doc-name">Doctor Miller</h1>
+	        <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	        </p>
+	      </div> -->
+	      
+	      <!-- MEDICINES -->
+        
+	      <div class="med-bar">
+	        <h1 class="med-title">Suggested Medication</h1>
+	      </div>
+	      
+  
+	      <div class="meds">
+	        <!-- <div class="med-card">
+	             <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
+	             <div class="med-deets">
+	               <h1 class="med-name">Skin Care</h1>
+	               <p class = "med-info">A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
+	               </p>
+	             </div>
+	        </div>
+	        <div class="med-card">
+	          <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
+	          <div class="med-deets">
+	            <h1 class="med-name">Skin Care</h1>
+	            <p class = "med-info">A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
+	            </p>
+	    </div>
+	        </div> -->
+	        <div class="med-card">
+	          <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
+	          <div class="med-deets">
+	            <h1 class="med-name">Skin Care</h1>
+	            <p class = "med-info">
+	            </p>A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
+	          </div>
+	        </div>
+	  <div class="med-card">
+	    <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
+	    <div class="med-deets">
+	      <h1 class="med-name">Skin Care</h1>
+	      <p class = "med-info">A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
+	      </p>
+	    </div>
+	  </div>
+	  <div class="med-card">
+	    <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
+	    <div class="med-deets">
+	      <h1 class="med-name">Skin Care</h1>
+	      <p class = "med-info">A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
+	      </p>
+	    </div>
+	  </div>
+	  <div class="med-card">
+	    <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
+	    <div class="med-deets">
+	      <h1 class="med-name">Skin Care</h1>
+	      <p class = "med-info">A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
+	      </p>
+	    </div>
+	  </div>
+	      </div>
+	      
+      </div>
+      
+      <footer class="footer-distributed">
+      <div class="footer-left">
+        <h3>DermaSentia</h3>
+        <p class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">DermaSentia</p>
+      </div>
+      
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p>
+            FCRIT, VASHI<br/>NAVI MUMBAI - 400710
+          </p>
+        </div>
+        
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+91-9820835824</p>
+        </div>
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:rrcg2000@gmail.com">Mail us!</a></p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>ABOUT THE APPLICATION</span>
+        Our application aims at detecting skin diseases quickly and easily!</p> 
+        
+      </div>
+      </footer>
+        
+        
+        
+
+      <script>
+          if (response.prediction[0][0]>response.prediction[0][1] && response.prediction[0][0]>response.prediction[0][2] ){
+              document.getElementById("description-deets").innerHTML = "Acne";
+              
+              document.getElementById("dos-deets").innerHTML = "Acne";
+              
+              document.getElementById("donts-deets").innerHTML = "Acne";
+              
+              document.getElementById("doc-name").innerHTML = "Doc";
+              document.getElementById("doc-info").innerHTML = "XYZ";
+              
+              
+              document.getElementById("med-name").innerHTML = "XYZ";
+              document.getElementById("med-name").innerHTML = "XYZ";
+              }
+              
+          else if (response.prediction[0][1]>response.prediction[0][0] && response.prediction[0][1]>response.prediction[0][2] ){
+              document.getElementById("description-deets").innerHTML = "Eczema";
+              
+              document.getElementById("dos-deets").innerHTML = "Eczema";
+              
+              document.getElementById("donts-deets").innerHTML = "Eczema";
+              
+              document.getElementById("doc-name").innerHTML = "Doc";
+              document.getElementById("doc-info").innerHTML = "XYZ";
+              
+              
+              document.getElementById("med-name").innerHTML = "XYZ";
+              document.getElementById("med-name").innerHTML = "XYZ";
+              }
+          
+          
+          
+          else (response.prediction[0][2]>response.prediction[0][0] && response.prediction[0][2]>response.prediction[0][1]){
+              document.getElementById("description-deets").innerHTML = "Pigmentation";
+              
+              document.getElementById("dos-deets").innerHTML = "Pigmentation";
+              
+              document.getElementById("donts-deets").innerHTML = "Pigmentation";
+              
+              document.getElementById("doc-name").innerHTML = "Doc";
+              document.getElementById("doc-info").innerHTML = "XYZ";
+              
+              
+              document.getElementById("med-name").innerHTML = "XYZ";
+              document.getElementById("med-name").innerHTML = "XYZ";
+              }
+          
+          
+      </script> 
+      
+      
+    
+      
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+        let base64Image;
+        $("#image-selector").change(function() {
+            let reader = new FileReader();
+        reader.onload = function(e) {
+            let dataURL = reader.result;
+            $('#selected-image').attr("src", dataURL);
+            $('#disease-image').attr("src", dataURL);
+            base64Image = dataURL.replace("data:image/png;base64,","");
+            console.log(base64Image);
+        }
+            reader.readAsDataURL($("#image-selector")[0].files[0]);
+        $("#acne-prediction").text("");
+            $("#eczema-prediction").text("");
+            $("#pigmentation-prediction").text("");
+        });
+        $("#predict-button").click(function(){
+            let message = {
+                image: base64Image
+            }
+            console.log(message);
+            $.post("http://localhost:5000/predict", JSON.stringify(message), function(response){
+                
+                $("#acne-prediction").text(response.prediction[0][0].toFixed(6));
+                $("#eczema-prediction").text(response.prediction[0][1].toFixed(6));
+                $("#pigmentation-prediction").text(response.prediction[0][2].toFixed(6));
+                console.log(response);
+            });
+        });       
+      </script>
+    
+      
+      
+</body>
+</html>    
+
