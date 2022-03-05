@@ -60,13 +60,13 @@
       <img id="disease-image" src="" alt="Disease Image"/>
       <div class="disease-description">
 	      <h1 class="description-title">Description</h1>
-	      <p class="description-deets">
+	      <p class="description-deets" id="description-deets">
 	        Rosacea is a chronic inflammatory skin condition that usually affects the face. People may mistake rosacea for acne, eczema, or an allergic skin reaction. The main symptoms of rosacea are facial flushing, irritated skin, and pimples. Other symptoms include blushing easily and eye problems
 	      </p>
       </div>
-      <div class="disease-dos">
+      <div class="disease-dos" id="disease-dos">
 	      <h1 class="dos-title">Dos</h1>
-	      <p class="dos-deets">
+	      <p class="dos-deets" id="dos-deets">
 	        Do apply skincare products rich in antioxidants and organic oils
 	        <br>
 	        Do wear sunscreen
@@ -78,9 +78,9 @@
 	        Do try to stay calm
 	      </p>
       </div>    
-      <div class="disease-donts">
-	      <h1 class="donts-title">Donts</h1>
-	      <p class="donts-deets">
+      <div class="disease-donts" id="disease-donts">
+	      <h1 class="donts-title" id="donts-title">Donts</h1>
+	      <p class="donts-deets" id="donts-deets">
 	        Don’t put chemicals on or next to your skin
 	        <br>
 	        Don’t eat foods that aggravate your rosacea
@@ -101,14 +101,14 @@
       <div class="docs">
 	      <div class="card">
 	        <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
-	        <h1 class="doc-name">Doctor Miller</h1>
-	        <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	        <h1 class="doc-name" id="doc-name">Doctor Miller</h1>
+	        <p class="doc-info" id="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
 	        </p>
 	      </div>
 	      <div class="card">
-	  <img class="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
-	  <h1 class="doc-name">Doctor Miller</h1>
-	  <p class="doc-info">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
+	  <img class="doc-pic" id="doc-pic" src="../Styling/IMAGES/generic-doc.jpg">
+	  <h1 class="doc-name" id="doc-name2">Doctor Miller</h1>
+	  <p class="doc-info" id="doc-info2">A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. A dermatologist can identify and treat more than 3,000 conditions. These conditions include eczema, psoriasis.
 	  </p>
 	      </div>
 	      <!-- <div class="card">
@@ -143,7 +143,7 @@
 	      </div>
 	      
   
-	      <div class="meds">
+	      <div class="meds" id="meds">
 	        <!-- <div class="med-card">
 	             <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
 	             <div class="med-deets">
@@ -162,8 +162,8 @@
 	        </div> -->
 	        <div class="med-card">
 	          <img class="med-pic" src="../Styling/IMAGES/generic-med.jpg">
-	          <div class="med-deets">
-	            <h1 class="med-name">Skin Care</h1>
+	          <div class="med-deets" id="med-deets">
+	            <h1 class="med-name" id="med-name">Skin Care</h1>
 	            <p class = "med-info">
 	            </p>A cream is a preparation usually for application to the skin. Cosmetic and  unmedicated creams are highly used in a variety of skin conditions.
 	          </div>
@@ -236,53 +236,8 @@
         
 
       <script>
-          if (response.prediction[0][0]>response.prediction[0][1] && response.prediction[0][0]>response.prediction[0][2] ){
-              document.getElementById("description-deets").innerHTML = "Acne";
-              
-              document.getElementById("dos-deets").innerHTML = "Acne";
-              
-              document.getElementById("donts-deets").innerHTML = "Acne";
-              
-              document.getElementById("doc-name").innerHTML = "Doc";
-              document.getElementById("doc-info").innerHTML = "XYZ";
-              
-              
-              document.getElementById("med-name").innerHTML = "XYZ";
-              document.getElementById("med-name").innerHTML = "XYZ";
-              }
-              
-          else if (response.prediction[0][1]>response.prediction[0][0] && response.prediction[0][1]>response.prediction[0][2] ){
-              document.getElementById("description-deets").innerHTML = "Eczema";
-              
-              document.getElementById("dos-deets").innerHTML = "Eczema";
-              
-              document.getElementById("donts-deets").innerHTML = "Eczema";
-              
-              document.getElementById("doc-name").innerHTML = "Doc";
-              document.getElementById("doc-info").innerHTML = "XYZ";
-              
-              
-              document.getElementById("med-name").innerHTML = "XYZ";
-              document.getElementById("med-name").innerHTML = "XYZ";
-              }
-          
-          
-          
-          else (response.prediction[0][2]>response.prediction[0][0] && response.prediction[0][2]>response.prediction[0][1]){
-              document.getElementById("description-deets").innerHTML = "Pigmentation";
-              
-              document.getElementById("dos-deets").innerHTML = "Pigmentation";
-              
-              document.getElementById("donts-deets").innerHTML = "Pigmentation";
-              
-              document.getElementById("doc-name").innerHTML = "Doc";
-              document.getElementById("doc-info").innerHTML = "XYZ";
-              
-              
-              document.getElementById("med-name").innerHTML = "XYZ";
-              document.getElementById("med-name").innerHTML = "XYZ";
-              }
-          
+      	  colsole.log(response.prediction, "testing")
+
           
       </script> 
       
@@ -308,18 +263,62 @@
             $("#pigmentation-prediction").text("");
         });
         $("#predict-button").click(function(){
+        	console.log("Pressed")
             let message = {
                 image: base64Image
             }
             console.log(message);
-            $.post("http://localhost:5000/predict", JSON.stringify(message), function(response){
+            $.post("http://localhost:8080/predict", JSON.stringify(message), function(response){
                 
                 $("#acne-prediction").text(response.prediction[0][0].toFixed(6));
                 $("#eczema-prediction").text(response.prediction[0][1].toFixed(6));
                 $("#pigmentation-prediction").text(response.prediction[0][2].toFixed(6));
-                console.log(response);
+
+				//Handeling response
+                if (response.prediction[0][0]>response.prediction[0][1] && response.prediction[0][0]>response.prediction[0][2])
+                {
+                	console.log("first")
+              		document.getElementById("description-deets").innerHTML = "Acne";
+              		document.getElementById("dos-deets").innerHTML = "Acne";
+					document.getElementById("donts-deets").innerHTML = "Acne";
+					document.getElementById("doc-name").innerHTML = "Doc";
+					document.getElementById("doc-info").innerHTML = "XYZ";
+              		document.getElementById("med-name").innerHTML = "XYZ";
+              		document.getElementById("med-name").innerHTML = "XYZ";
+                }
+
+          		else if (response.prediction[0][1]>response.prediction[0][0] && response.prediction[0][1]>response.prediction[0][2])
+          		{
+          			console.log("Second")
+              	  document.getElementById("description-deets").innerHTML = "Eczema";
+				  document.getElementById("dos-deets").innerHTML = "Eczema";
+				  document.getElementById("donts-deets").innerHTML = "Eczema";
+				  document.getElementById("doc-name").innerHTML = "Doc";
+				  document.getElementById("doc-info").innerHTML = "XYZ";
+				  document.getElementById("med-name").innerHTML = "XYZ";
+				  document.getElementById("med-name").innerHTML = "XYZ";
+                }
+
+				else (response.prediction[0][2]>response.prediction[0][0] && response.prediction[0][2]>response.prediction[0][1])
+				{
+					console.log("Third")
+				  document.getElementById("description-deets").innerHTML = "Pigmentation";
+				  document.getElementById("dos-deets").innerHTML = "Pigmentation";
+				  document.getElementById("donts-deets").innerHTML = "Pigmentation";
+				  document.getElementById("doc-name").innerHTML = "Doc";
+				  document.getElementById("doc-info").innerHTML = "XYZ";
+				  document.getElementById("med-name").innerHTML = "XYZ";
+				  document.getElementById("med-name").innerHTML = "XYZ";
+                }
+
+
+
             });
-        });       
+
+
+        });
+
+
       </script>
     
       
