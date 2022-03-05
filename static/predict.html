@@ -268,7 +268,7 @@
                 image: base64Image
             }
             console.log(message);
-            $.post("http://localhost:8080/predict", JSON.stringify(message), function(response){
+            $.post("http://localhost:5000/predict", JSON.stringify(message), function(response){
                 
                 $("#acne-prediction").text(response.prediction[0][0].toFixed(6));
                 $("#eczema-prediction").text(response.prediction[0][1].toFixed(6));
